@@ -1,0 +1,36 @@
+class Deck:
+    def __init__(self):
+        '''Create a deck in order'''
+        self.deck=[]
+        for suit in suits:
+            for rank in ranking:
+                self.deck.append(Card(suit,rank))
+    def shuffle(self):
+        '''Shuffle the deck,python actually already has a shuffle method in its random lib'''
+        random.shuffle(self.deck)
+    def deal(self):
+        '''Grab the first item in the deck'''
+        single_card=self.deck.pop()
+        return single_card 
+    def __str__(self):
+        deck_comp=""
+        for card in self.cards:
+            deck_comp+=" "+deck_comp.__str__()
+        return "The deck has" + deck_comp
+def make_bet():
+    ''' Ask the player for the bet amount and '''
+    
+    global bet
+    bet = 0
+    
+    print ' What amount of chips would you like to bet? (Enter whole integer please) '
+    
+    
+    while bet == 0:
+        bet_comp = raw_input() 
+        bet_comp = int(bet_comp)
+        
+        if bet_comp >= 1 and bet_comp <= chip_pool:
+            bet = bet_comp
+        else:
+            print "Invalid bet, you only have " + str(chip_pool) + " remaining"
