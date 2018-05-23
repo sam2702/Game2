@@ -1,0 +1,35 @@
+def game_exit():
+    print 'Thanks for playing!'
+    exit()
+def player_input():
+    '''Read user input, lower case it just to be safe'''
+    plin = raw_input().lower()
+    
+    
+    if plin == 'h':
+        hit()
+    elif plin == 's':
+        stand()
+    elif plin == 'd':
+        deal_cards()
+    elif plin == 'q':
+        game_exit()
+    else:
+        print "Invalid Input...Enter h, s, d, or q:"
+        player_input()
+def intro():
+    statement ='''Welcome to BlackJack! Get as close to 21 as you can without going over!
+    Dealer hits until she reaches 17. Aces count as 1 or 11.
+    Card output goes a letter followed by a number of face notation'''
+    print statement
+# Create a Deck
+deck = Deck()
+#Shuffle it
+deck.shuffle()
+# Create player and dealer hands
+player_hand = Hand()
+dealer_hand = Hand()
+#Print the intro
+intro()
+# Deal out the cards and start the game!
+deal_cards()

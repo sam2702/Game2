@@ -33,4 +33,43 @@ def make_bet():
         if bet_comp >= 1 and bet_comp <= chip_pool:
             bet = bet_comp
         else:
+<<<<<<< HEAD
             print "Invalid bet, you only have " + str(chip_pool) + " remaining"
+def deal_cards():
+    ''' This function deals out cards and sets up round '''
+    
+    # Set up all global variables
+    global result,playing,deck,player_hand,dealer_hand,chip_pool,bet
+    
+    # Create a deck
+    deck = Deck()
+    
+    #Shuffle it
+    deck.shuffle()
+    
+    #Set up bet
+    make_bet()
+    
+    # Set up both player and dealer hands
+    player_hand = Hand()
+    dealer_hand = Hand()
+    
+    # Deal out initial cards
+    player_hand.card_add(deck.deal())
+    player_hand.card_add(deck.deal())
+    
+    dealer_hand.card_add(deck.deal())
+    dealer_hand.card_add(deck.deal())
+    
+    result = "Hit or Stand? Press either h or s: "
+    
+    if playing == True:
+        print 'Fold, Sorry'
+        chip_pool -= bet
+    
+    # Set up to know currently playing hand
+    playing = True 
+    game_step()
+=======
+            print "Invalid bet, you only have " + str(chip_pool) + " remaining"
+>>>>>>> parent of bda8c0f... Revert "cl2"
